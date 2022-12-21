@@ -1,0 +1,29 @@
+{% load static %} 
+
+<section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Experiencia Laboral</h2>
+          <p>Dentro de este apartado encontrara los empleos y la experiencia laboral que he desarrollado dentro del mi vida laboral. Esperando que mi desarrollo sea suficiente para las expectativas de su vacante.</p>
+        </div>
+
+        <div class="row">
+        {% for experiencia in experiencia_data %}
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">{{ experiencia.Empresa }}</h3>
+            <div class="resume-item pb-0">
+              <h4>{{ experiencia.Puesto }}</h4>
+              <p><em>{{ experiencia.Introduccion }}</em></p>
+              <ul>
+                <li>Inicio de Labores: {{ experiencia.FechaInicio }}</li>
+                <li>Termino de Labores: {{ experiencia.FechaFin }}</li>
+                <li>Salario: {{ experiencia.Salario }}</li>
+              </ul>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+
+      </div>
+</section>

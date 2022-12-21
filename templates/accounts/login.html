@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link href="{% static 'css/login.css' %}" rel="stylesheet" />
+    <title>Inicio de Sesion</title>
+</head>
+<body>
+    <div class="container"> <div class="row">
+        <div class="col-md-6"> <div class="card">
+            <form method="post" action="{% url 'login' %}" class="box">
+                <h1>Inicie Sesión</h1> 
+                {% if form.errors %}
+                <p class="text-muted">Tu nombre de Usuario y Contraseña No coinciden. Favor de intentar nuevamente</p>
+                {% endif %}
+                {% if next %}
+                {% if user.is_authenticated %}
+                <p class="text-muted">Tu cuenta no tiene acceso a esta página. Para Acceder, de favor inicia sesión.</p>
+                {% else %}
+                <p class="text-muted">Por favor Inicia Sesión en esta página</p>
+                {% endif %}
+                {% endif %}
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="usuario"> 
+                <input type="password" name="password" placeholder="Contraseña">
+                <input type="submit" value="login">
+                <input type="hidden" name="next" value="{{ next }}">
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

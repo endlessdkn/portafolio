@@ -1,0 +1,28 @@
+{% load static %} 
+
+<section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>En este apartado muestro el contenido grafico de las experiencias que tengo en el ámbito del diseño. Algunas son de la experiencia laboral y otra son por medio del estudio, aprendizaje y de los hobbies.</p>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+        {% for portafolio in portafolio_data %}
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="../{{ portafolio.Foto }}" class="img-fluid" alt="{{ portafolio.Descripcion }}">
+              <div class="portfolio-links">
+                <a href="../{{ portafolio.Foto }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ portafolio.Etiqueta }}"><i class='bx bxs-message-alt-dots'></i></a>
+              </div>
+            </div>
+          </div>
+
+        {% endfor %}  
+
+        </div>
+
+      </div>
+</section>

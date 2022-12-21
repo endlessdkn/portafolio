@@ -1,0 +1,40 @@
+{% load static %}  
+<section id="skills" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Habilidades</h2>
+          <p>A continuación, le presento algunas de las habilidades que poseo y de las cuales describo en un determinado porcentaje</p>
+        </div>
+
+        <div class="row skills-content">
+
+          <div class="col-lg-6" data-aos="fade-up">
+          <h2>Softare</h2>
+            {% for software in software_data %}
+            <div class="progress">
+              <span class="skill">{{ software.Software }} <i class="val">{{ software.Porcentaje }}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{ software.Porcentaje }}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h2>Lenguajes</h2>
+            {% for lenguaje in lenguajes_data%}
+            <div class="progress">
+              <span class="skill">{{ lenguaje.lenguaje }} <i class="val">{{ lenguaje.Porcentaje }}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{ lenguaje.Porcentaje }}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+
+        </div>
+
+      </div>
+</section>

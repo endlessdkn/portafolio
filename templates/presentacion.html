@@ -1,0 +1,22 @@
+{% load static %}  
+<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+        {% for item in presentacion_data %}
+        <style type="text/css">
+        #hero {
+        width: 100%;
+        height: 100vh;
+        background: url("../{{ item.PortadaFondo }}") top center;
+        background-size: cover;
+        }
+        </style>
+      <h1>{{ item.Nombre }}</h1>
+      <p>Yo soy <span class="typed" data-typed-items="{{ item.Profesiones }}"></span></p>
+      {% endfor %}
+      <p class="social-links mt-3 text-lg-start">
+            {% for social in social_data %}
+                <a href="{{ social.SocialMedia }}" class="{{ social.Icono }}"><i class="bx bxl-{{ social.Icono }}"></i></a>
+            {% endfor %}
+        </p>
+    </div>
+</section>
