@@ -5,6 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link href="{% static 'css/login.css' %}" rel="stylesheet" />
+    <title>Inicio de Sesion</title>
+</head>
+<body>
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+                <div class="bg-dark text-white">
+                    <div class="box bg-dark">
+                    <form method="post" action="{% url 'login' %}" class="box">
+                        <h1>Inicie Sesión</h1> 
+                        {% if form.errors %}
+                        <p class="text-muted">Tu nombre de Usuario y Contraseña No coinciden. Favor de intentar nuevamente</p>
+                        {% endif %}
+                        {% if next %}
+                        {% if user.is_authenticated %}
+                        <p class="text-muted">Tu cuenta no tiene acceso a esta página. Para Acceder, de favor inicia sesión.</p>
+                        {% else %}
+                        <p class="text-muted">Por favor Inicia Sesión en esta página</p>
+                        {% endif %}
+                        {% endif %}
+                        {% csrf_token %}
+                        <input type="text" name="username" placeholder="usuario"> 
+                        <input type="password" name="password" placeholder="Contraseña">
+                        <input type="submit" value="login">
+                        <input type="hidden" name="next" value="{{ next }}">
+                    </form>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
+{% comment %} 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
@@ -38,4 +91,4 @@
 </div>
 </div>
 </body>
-</html>
+</html> {% endcomment %}
